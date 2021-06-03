@@ -6,6 +6,11 @@ deny[msg] {
 }
 
 deny[msg] {
+	not input.resource.aws_default_security_group.ident
+	msg = "Define Default Security Group"
+}
+
+deny[msg] {
 	not input.resource.aws_vpc.main.enable_dns_support
 	msg = "VPC is missing enable dns. Should have enable_dns_support"
 }

@@ -15,7 +15,13 @@ I created a Makefile with make unit which uses:
   * wget https://github.com/open-policy-agent/conftest/releases/download/v0.25.0/conftest_0.25.0_Linux_x86_64.tar.gz
   * tar xzf conftest_0.25.0_Linux_x86_64.tar.gz
   * sudo mv conftest /usr/local/bin
+* checkov (for additional checks)
+  * pip3 install checkov
 
 
 run the makefile with:
-* make unit
+* make unittest -i --> on Development
+* make unittest --> on CICD
+
+
+You can always create new tests in the tests folder and add it to the makefile. To have the tests run just create the structure (new folder + main.tf File)
