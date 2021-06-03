@@ -31,6 +31,11 @@ deny[msg] {
 }
 
 deny[msg] {
+  not re_match(".*public", input.resource.aws_subnet.public.tags.state)
+  msg = "Public subnet missing tag `state`"
+}
+
+deny[msg] {
   not contains(input.resource.aws_subnet.public.availability_zone, "data.aws_availability_zones.available")
   msg = "Use data resources to interpolate availability zone"
 }
