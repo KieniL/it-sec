@@ -45,4 +45,24 @@ deny[msg] {
 	msg = "VPC project tags Block should have variable `var.project` included"
 }
 
+deny[msg] {
+	not input.resource.aws_default_security_group.ident.ingress.to_port == 22
+  msg = "Default security group should allow on port 22 on ingress"
+}
+
+deny[msg] {
+	not input.resource.aws_default_security_group.ident.egress.to_port == 22
+  msg = "Default security group should allow on port 22 on egress"
+}
+
+deny[msg] {
+  not input.resource.aws_default_security_group.ident.vpc_id
+  msg = "Define vpc_id in securitygroup"
+}
+
+deny[msg] {
+	not contains(input.resource.aws_default_security_group.ident.vpc_id, "aws_vpc.main.id")
+	msg = "Securitygroup vpc_id should point to the vpc with aws_vpc.main.id"
+}
+
 

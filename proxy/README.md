@@ -20,8 +20,7 @@ I created a Makefile with make unit which uses:
 
 
 run the makefile with:
-* make unittest -i --> on Development
-* make unittest --> on CICD
+* make unittest
 
 
 You can always create new tests in the tests folder and add it to the makefile. To have the tests run just create the structure (new folder + main.tf File)

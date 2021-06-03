@@ -7,3 +7,8 @@ variable "vpc_cidr" {
   type        = string
   description = "The cidr_block to set in VPC"
 }
+
+variable "project" {
+  type        = string
+  description = "The project to set in VPC tag"  
+}
