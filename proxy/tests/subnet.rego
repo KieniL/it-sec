@@ -6,11 +6,6 @@ deny[msg] {
 }
 
 deny[msg] {
-  not input.resource.aws_subnet.public.map_public_ip_on_launch
-  msg = "Public Subnet CIDR Block is not public"
-}
-
-deny[msg] {
   not re_match(".*public", input.resource.aws_subnet.public.tags.Name)
   msg = "Public subnet missing tag `Name`"
 }

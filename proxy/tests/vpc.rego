@@ -46,13 +46,13 @@ deny[msg] {
 }
 
 deny[msg] {
-	not input.resource.aws_default_security_group.ident.ingress.to_port == 22
-  msg = "Default security group should allow on port 22 on ingress"
+	not count(input.resource.aws_default_security_group.ident.ingress) < 1
+  msg = "No ingress on default security group is allowed"
 }
 
 deny[msg] {
-	not input.resource.aws_default_security_group.ident.egress.to_port == 22
-  msg = "Default security group should allow on port 22 on egress"
+	not count(input.resource.aws_default_security_group.ident.egress) <1
+  msg = "No egress on default security group is allowed"
 }
 
 deny[msg] {

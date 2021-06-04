@@ -12,18 +12,4 @@ resource "aws_vpc" "main" {
 resource "aws_default_security_group" "ident" {
   vpc_id = aws_vpc.main.id
 
-  ingress {
-    protocol  = "tcp"
-    self      = true
-    from_port = 0
-    to_port   = 22
-  }
-
-  egress {
-    protocol  = "tcp"
-    self      = true
-    from_port = 0
-    to_port   = 22
-  }
-
 }
